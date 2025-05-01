@@ -139,6 +139,10 @@ npm test -- --coverage
 - `App.js` - Main React component
 - Local storage for persisting user preferences and connection details
 
+### Fixes
+
+- **Icon Display Issue**: If icons are not displaying correctly, ensure that `app.css` is imported in `src/index.js` to load Tailwind and custom styles. This resolves issues with icon sizing and color-utility rules.
+
 ## Future Improvements
 
 - Support for Plex SSO login instead of token authentication

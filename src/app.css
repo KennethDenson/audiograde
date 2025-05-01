@@ -27,6 +27,58 @@
   --helper-text-color: #9ca3af;
 }
 
+/* Base styling for buttons and icons */
+button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Font Awesome icon styling */
+.fa {
+  font-size: 16px; /* Default size */
+}
+
+.theme-toggle .fa,
+.settings-close .fa {
+  font-size: 18px;
+}
+
+.music-icon-container .fa {
+  font-size: 36px;
+}
+
+.next-album-btn .fa {
+  font-size: 14px;
+}
+
+/* Play/pause buttons */
+.track-row button .fa-play {
+  margin-left: 2px; /* Center the play icon */
+}
+
+/* Star rating styling */
+.fa-star, .fa-star-o {
+  font-size: 18px;
+  padding: 0 2px;
+}
+
+/* Hover effect for all icons */
+button:hover .fa {
+  transform: scale(1.1);
+  transition: transform 0.2s;
+}
+
+/* Color overrides for star ratings */
+.text-yellow-400 {
+  color: #facc15;
+}
+
+.text-gray-300 {
+  color: #d1d5db;
+}
+
+/* App styles */
 .App {
   text-align: center;
   min-height: 100vh;
@@ -196,20 +248,18 @@ body {
 
 /* Login page styles */
 .music-icon-container {
-  background: linear-gradient(45deg, #4a6cf7, #6c8cff);
-  border-radius: 50%;
   width: 80px;
   height: 80px;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 10px 20px rgba(74, 108, 247, 0.3);
-  animation: pulse 2s infinite;
+  background: linear-gradient(45deg, #4a6cf7, #6c8cff);
+  border-radius: 50%;
+  box-shadow: 0 8px 16px rgba(74, 108, 247, 0.3);
 }
 
-.music-icon {
-  width: 40px;
-  height: 40px;
+.music-icon-container .fa {
+  font-size: 36px;
   color: white;
 }
 

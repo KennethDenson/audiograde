@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
-import { Play, Pause, SkipForward, Star, LogIn, Music, Moon, Sun, Menu, X, Settings } from 'lucide-react';
 import PlexService from './plex-service';
+import 'font-awesome/css/font-awesome.min.css';
 
 // Use mock data when not connected to Plex
 const mockPlexService = {
@@ -311,12 +311,12 @@ export default function Audiograde() {
           className="theme-toggle absolute top-4 right-4" 
           aria-label="Toggle theme"
         >
-          {isDarkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+          {isDarkMode ? <i className="fa fa-sun-o"></i> : <i className="fa fa-moon-o"></i>}
         </button>
         
         <div className="flex flex-col items-center justify-center w-full">
           <div className="music-icon-container mb-6">
-            <Music className="music-icon" />
+            <i className="fa fa-music text-white"></i>
           </div>
           <h1 className="text-2xl font-bold mb-6 text-[var(--text-color)]">Audiograde</h1>
         </div>
@@ -361,7 +361,7 @@ export default function Audiograde() {
             type="submit"
             className="login-button"
           >
-            <LogIn className="w-4 h-4 mr-2" />
+            <i className="fa fa-sign-in mr-2"></i>
             Connect to Plex
           </button>
           <div className="mt-6 p-4 bg-blue-50 dark:bg-blue-900 rounded-md">
@@ -408,10 +408,10 @@ export default function Audiograde() {
     <div className="modern-card">
       <div className="flex justify-between items-center absolute top-4 right-4 gap-2">
         <button onClick={() => setIsSettingsOpen(true)} className="theme-toggle" aria-label="Open settings">
-          <Settings className="w-5 h-5" />
+          <i className="fa fa-cog"></i>
         </button>
         <button onClick={toggleTheme} className="theme-toggle" aria-label="Toggle theme">
-          {isDarkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+          {isDarkMode ? <i className="fa fa-sun-o"></i> : <i className="fa fa-moon-o"></i>}
         </button>
       </div>
 
@@ -425,7 +425,7 @@ export default function Audiograde() {
                 onClick={() => setIsSettingsOpen(false)}
                 className="settings-close"
               >
-                <X className="w-6 h-6" />
+                <i className="fa fa-times"></i>
               </button>
             </div>
             
@@ -553,7 +553,7 @@ export default function Audiograde() {
               onClick={() => fetchNewAlbum()} 
               className="next-album-btn"
             >
-              <SkipForward className="w-4 h-4" />
+              <i className="fa fa-forward mr-2"></i>
               Next Album
             </button>
           </div>
@@ -579,9 +579,9 @@ export default function Audiograde() {
                 disabled={!track.previewUrl}
               >
                 {currentTrack?.id === track.id && isPlaying ? (
-                  <Pause className="w-4 h-4" />
+                  <i className="fa fa-pause"></i>
                 ) : (
-                  <Play className="w-4 h-4" />
+                  <i className="fa fa-play"></i>
                 )}
               </button>
               <div className="track-info">
@@ -593,15 +593,15 @@ export default function Audiograde() {
                   <button
                     key={star}
                     onClick={() => handleRateTrack(track.id, star)}
-                    className="focus:outline-none"
+                    className="focus:outline-none px-1"
                   >
-                    <Star
-                      className={`w-5 h-5 ${
+                    <i 
+                      className={`fa ${
                         (ratings[track.id] || track.rating || 0) >= star
-                          ? 'text-yellow-400 fill-yellow-400'
-                          : 'text-gray-300'
+                          ? 'fa-star text-yellow-400'
+                          : 'fa-star-o text-gray-300'
                       }`}
-                    />
+                    ></i>
                   </button>
                 ))}
               </div>
