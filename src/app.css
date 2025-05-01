@@ -1,0 +1,478 @@
+@import url('https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css');
+
+/* Dark mode variables */
+:root {
+  --bg-color: #f7fafc;
+  --card-bg: #fff;
+  --text-color: #1f2937;
+  --text-secondary: #6b7280;
+  --track-bg: #f9fafb;
+  --border-color: #d1d5db;
+  --next-album-bg: #1f2937;
+  --next-album-text: #ffffff;
+  --label-color: #4b5563;
+  --helper-text-color: #6b7280;
+}
+
+[data-theme='dark'] {
+  --bg-color: #1a1a1a;
+  --card-bg: #2d2d2d;
+  --text-color: #e5e7eb;
+  --text-secondary: #9ca3af;
+  --track-bg: #3d3d3d;
+  --border-color: #4b5563;
+  --next-album-bg: #e5e7eb;
+  --next-album-text: #1a1a1a;
+  --label-color: #d1d5db;
+  --helper-text-color: #9ca3af;
+}
+
+.App {
+  text-align: center;
+  min-height: 100vh;
+  padding: 1rem;
+  background: var(--bg-color);
+}
+
+.App-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100%;
+  color: var(--text-color);
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: var(--bg-color);
+  transition: background-color 0.3s ease;
+}
+
+/* Modern card look for main container */
+.modern-card {
+  background: var(--card-bg);
+  border-radius: 1.25rem;
+  box-shadow: 0 4px 24px 0 rgba(0,0,0,0.08);
+  padding: 1.5rem;
+  margin: 0 auto;
+  width: 90%;
+  max-width: 800px;
+  transition: background-color 0.3s ease;
+  position: relative;
+}
+
+/* Album header section */
+.album-header {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+  padding-top: 3rem;
+}
+
+.album-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1;
+  min-width: 0;
+  text-align: left;
+}
+
+.album-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 0.5rem;
+}
+
+/* Album art: responsive, centered, never clipped */
+.album-art {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 1rem;
+  box-shadow: 0 2px 12px 0 rgba(0,0,0,0.10);
+  background: var(--track-bg);
+  flex-shrink: 0;
+}
+
+/* Track row modern look */
+.track-row {
+  background: var(--track-bg);
+  border-radius: 0.75rem;
+  margin-bottom: 0.25rem;
+  padding: 0.625rem 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  transition: all 0.2s ease;
+}
+
+.track-row:hover {
+  background: var(--track-bg-hover, var(--track-bg));
+  transform: translateX(2px);
+}
+
+.track-info {
+  flex: 1;
+  min-width: 0;
+  text-align: left;
+}
+
+.track-title {
+  color: var(--text-color);
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 0.125rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: left;
+}
+
+.track-duration {
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  text-align: left;
+}
+
+/* Responsive text for album/artist */
+.album-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+  color: var(--text-color);
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.artist-title {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.25rem;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.year-text {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Theme toggle and settings buttons */
+.theme-toggle {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 50%;
+  width: 2.25rem;
+  height: 2.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: var(--text-color);
+  padding: 0;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.1);
+  border-color: var(--text-color);
+}
+
+/* Hide scrollbars on mobile for a cleaner look */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Login page styles */
+.music-icon-container {
+  background: linear-gradient(45deg, #4a6cf7, #6c8cff);
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 20px rgba(74, 108, 247, 0.3);
+  animation: pulse 2s infinite;
+}
+
+.music-icon {
+  width: 40px;
+  height: 40px;
+  color: white;
+}
+
+.login-input {
+  width: 100%;
+  background-color: var(--track-bg);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.login-input:focus {
+  outline: none;
+  border-color: #4a6cf7;
+  box-shadow: 0 0 0 3px rgba(74, 108, 247, 0.25);
+}
+
+.login-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background: linear-gradient(45deg, #4a6cf7, #6c8cff);
+  color: white;
+  font-weight: 600;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  border: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(74, 108, 247, 0.3);
+}
+
+.login-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(74, 108, 247, 0.4);
+}
+
+.login-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(74, 108, 247, 0.4);
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 5px 15px rgba(74, 108, 247, 0.3);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(74, 108, 247, 0.4);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 5px 15px rgba(74, 108, 247, 0.3);
+  }
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 640px) {
+  .App {
+    padding: 0.5rem;
+  }
+
+  .modern-card {
+    width: 100%;
+    padding: 1.25rem;
+  }
+
+  .album-header {
+    padding-top: 2.5rem;
+    gap: 1rem;
+  }
+
+  .album-art {
+    width: 120px;
+    height: 120px;
+  }
+
+  .album-title {
+    font-size: 1.25rem;
+  }
+
+  .artist-title {
+    font-size: 1rem;
+  }
+
+  .track-row {
+    padding: 0.5rem 0.625rem;
+  }
+
+  .theme-toggle {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .modern-btn {
+    padding: 0.375rem 0.75rem;
+    font-size: 0.75rem;
+  }
+}
+
+/* Settings Modal */
+.settings-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 50;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.settings-modal {
+  background: var(--card-bg);
+  border-radius: 16px;
+  width: 100%;
+  max-width: 400px;
+  margin: auto;
+  position: relative;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.settings-header {
+  padding: 20px 20px 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.settings-content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.settings-close {
+  color: var(--text-secondary);
+  padding: 8px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.settings-close:hover {
+  background: var(--track-bg);
+}
+
+.settings-label {
+  color: var(--text-color);
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.settings-select {
+  width: 100%;
+  background: var(--track-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 12px;
+  color: var(--text-color);
+  font-size: 1rem;
+  appearance: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.settings-select:hover {
+  border-color: var(--text-color);
+}
+
+.settings-select:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);
+}
+
+/* Mobile adjustments */
+@media (max-width: 640px) {
+  .settings-overlay {
+    padding: 16px;
+  }
+  
+  .settings-modal {
+    margin: 0;
+  }
+  
+  .settings-header {
+    padding: 16px 16px 0 16px;
+  }
+  
+  .settings-content {
+    padding: 16px;
+    gap: 16px;
+  }
+}
+
+.disconnect-button {
+  background: #dc2626;
+  color: white;
+  border: none;
+  border-radius: 0.75rem;
+  padding: 0.75rem 1rem;
+  font-weight: 500;
+  width: 100%;
+  transition: all 0.2s;
+}
+
+.disconnect-button:hover {
+  background: #b91c1c;
+  transform: translateY(-1px);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.next-album-btn {
+  background: var(--next-album-bg);
+  color: var(--next-album-text);
+  border: none;
+  border-radius: 0.75rem;
+  padding: 0.75rem 1.25rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.next-album-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.next-album-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
