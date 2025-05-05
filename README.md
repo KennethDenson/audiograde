@@ -66,13 +66,6 @@ npm run build
 
 The build artifacts will be stored in the `build/` directory.
 
-### Generating Icons
-
-The repository includes a logo file at `public/logo.png`. To generate the necessary icons for production use:
-
-1. Use an online tool like [PNG to ICO converter](https://convertico.com/) to create a favicon
-2. Generate sizes 192x192 and 512x512 for Progressive Web App support
-3. Place all generated files in the `public/` directory
 
 ## Usage
 
@@ -118,20 +111,6 @@ If you need to reset your settings or change your Plex server:
 2. Click "Reset All Settings"
 3. You'll be returned to the login screen
 
-## Testing
-
-This project includes comprehensive tests for both components and services:
-
-```
-npm test
-```
-
-To run tests with coverage reporting:
-
-```
-npm test -- --coverage
-```
-
 ## Technical Details
 
 ### Stack
@@ -147,17 +126,6 @@ npm test -- --coverage
 - `App.js` - Main React component
 - Local storage for persisting user preferences and connection details
 
-### Fixes
-
-- **Icon Display Issue**: If icons are not displaying correctly, ensure that `app.css` is imported in `src/index.js` to load Tailwind and custom styles. This resolves issues with icon sizing and color-utility rules.
-
-## Future Improvements
-
-- Support for Plex SSO login instead of token authentication
-- Mobile app version with React Native
-- Integration with additional metadata providers
-- Batch rating functionality
-- Export/import of ratings
 
 ## License
 
