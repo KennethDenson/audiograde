@@ -16,9 +16,19 @@ A modern web application that helps you rate unrated music tracks in your Plex M
 - 🔄 Easy navigation between albums
 - 🔒 Your Plex token stays in your browser (localStorage)
 
-## Screenshot
+## Screenshots
 
-*Note: Add your own screenshot here after running the application.*
+### Desktop View
+![Desktop View](screenshots/desktop.png)
+
+### Setup Screen
+![Setup Screen](screenshots/setup.png)
+
+### Setup (Dark Mode)
+![Setup Dark Mode](screenshots/setup-dark.png)
+
+### Rating Screen
+![Rating Screen](screenshots/rating.png)
 
 ## Getting Started
 
