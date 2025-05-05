@@ -19,16 +19,14 @@ A modern web application that helps you rate unrated music tracks in your Plex M
 ## Screenshots
 
 ### Desktop View
-![Desktop View](screenshots/desktop.png)
+<img src="screenshots/desktop.png" alt="Desktop View" width="100%"/>
 
-### Setup Screen
-![Setup Screen](screenshots/setup.png)
-
-### Setup (Dark Mode)
-![Setup Dark Mode](screenshots/setup-dark.png)
-
-### Rating Screen
-![Rating Screen](screenshots/rating.png)
+### Mobile Views
+<p align="center">
+  <img src="screenshots/setup.png" alt="Setup Screen" width="32%" />
+  <img src="screenshots/setup-dark.png" alt="Setup Dark Mode" width="32%" />
+  <img src="screenshots/rating.png" alt="Rating Screen" width="32%" />
+</p>
 
 ## Getting Started
 
