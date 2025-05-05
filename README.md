@@ -1,7 +1,5 @@
 # Audiograde
 
-![Audiograde](public/logo.png)
-
 A modern web application that helps you rate unrated music tracks in your Plex Media Server library. Find and rate albums with unrated tracks to enhance your music collection metadata.
 
 ## Features
