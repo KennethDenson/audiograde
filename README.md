@@ -6,6 +6,8 @@ A modern web application that helps you rate unrated music tracks in your Plex M
 
 ## Features
 
+<img src="public/logo.png" alt="Audiograde Logo" width="100" align="right" style="margin-left: 20px; margin-bottom: 10px;" />
+
 - 🎵 Browse albums with unrated tracks in your Plex music library
 - ⭐ Rate tracks directly through an intuitive interface
 - 🎧 Preview tracks (if available in your Plex setup)
